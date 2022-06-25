@@ -1,3 +1,166 @@
-.hello {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:wght@400;700&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("./img/bg.jpg");
+  color: white;
+  background-size: 100vw 100vh;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  .search_container {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 200px;
+      padding: 5px;
+      padding-left: 10px;
+    }
+    input:focus {
+      outline: none !important;
+      outline-width: 0 !important;
+      box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+    input::placeholder {
+      color: rgba($color: #e5e5e5, $alpha: 0.8);
+    }
+
+    .searchBar {
+      height: 30px;
+      background-color: rgba($color: #929292, $alpha: 0.1);
+      border: none;
+      color: white;
+      font-size: 0.9rem;
+      border-radius: 20px;
+    }
+    .searchButton {
+      background: url("./img/searchbutton.png");
+      background-size: contain;
+      height: 20px;
+      width: 20px;
+      margin-left: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .switch-button {
+    background: rgba(255, 255, 255, 0.56);
+    border-radius: 30px;
+    overflow: hidden;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #000;
+    position: relative;
+    padding-right: 50px;
+    margin-top: 10px;
+    margin-left: 5px;
+
+    &:before {
+      content: "°F";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    &-checkbox {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+
+      &:checked + .switch-button-label:before {
+        transform: translateX(50px);
+        transition: transform 300ms linear;
+      }
+
+      & + .switch-button-label {
+        position: relative;
+        padding: 5px 0;
+        display: block;
+        user-select: none;
+        pointer-events: none;
+
+        &:before {
+          content: "";
+          background: #fff;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          border-radius: 30px;
+          transform: translateX(0);
+          transition: transform 300ms;
+        }
+
+        .switch-button-label-span {
+          position: relative;
+        }
+      }
+    }
+  }
+
+  small {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    height: 10px;
+  }
+}
+
+.locationContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+
+  .locationDiv {
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  .tempDiv {
+    font-size: 15rem;
+  }
 }
